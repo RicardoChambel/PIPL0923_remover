@@ -4,7 +4,7 @@ Descrição de README.md
 
 ## 🚀 Fast Travel 🚀
 
-#### (Clicar para onde quer ir)
+(Clicar para onde quer ir)
 
 ### ‣ [Configurar email e nome de commit](https://github.com/RicardoChambel/PIPL0923_remover?tab=readme-ov-file#configurar-email-e-nome-de-commit)
 
