@@ -4,6 +4,10 @@ Descrição de README.md
 
 # Comandos de terminal relacionados ao github
 
+## - Fast Travel -
+
+#### (Clicar para onde quer ir)
+
 ### [Configurar email e nome de commit](https://github.com/RicardoChambel/PIPL0923_remover?tab=readme-ov-file#configurar-email-e-nome-de-commit)
 
 ### [Enviar ficheiros para repositório](https://github.com/RicardoChambel/PIPL0923_remover?tab=readme-ov-file#enviar-ficheiros-para-reposit%C3%B3rio-do-github)
