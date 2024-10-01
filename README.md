@@ -1,8 +1,24 @@
 # PIPL0923_remover
 
-Descrição muito fixe
+Descrição de README.md
 
-# Enviar Ficheiros para repositório do github
+# Comandos de terminal relacionados ao github
+
+## Configurar email e nome de commit
+
+### Configurar email de commit
+
+```
+git config --global user.email "email@email.com"
+```
+
+### Configurar nome de commit
+
+```
+git config --global user.name "Nome"
+```
+
+## Enviar Ficheiros para repositório do github
 
 ### Adicionar todos os ficheiros ao commit
 
