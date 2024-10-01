@@ -18,6 +18,8 @@ git config --global user.email "email@email.com"
 git config --global user.name "Nome"
 ```
 
+<br>
+
 ## Enviar Ficheiros para repositório do github
 
 ### Adicionar todos os ficheiros ao commit
