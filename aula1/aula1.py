@@ -76,3 +76,10 @@ num2 = float(input("Digite o segundo número: "))
 soma = num1 + num2
 
 print("A soma dos dois números é:", soma)
+
+nota1 = float(input("Digite a primeira nota: "))
+nota2 = float(input("Digite a segunda nota: "))
+nota3 = float(input("Digite a terceira nota: "))
+nota4 = float(input("Digite a quarta nota: "))
+
+print("A média das notas e:", (nota1 + nota2 + nota3 + nota4) / 4)
