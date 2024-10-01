@@ -16,7 +16,7 @@ git add .
 git commit>
 ```
 
-### ou
+#### ou
 
 ```
 git commit -m "mensagem de commit"
