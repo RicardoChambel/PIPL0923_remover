@@ -6,14 +6,24 @@ Passos para meter os ficheiros no github:
 
 ## Adicionar todos os ficheiros ao commit
 
-<git add .>
+```
+git add .
+```
 
 ## Dar commit
 
-<git commit>
+```
+git commit>
+```
+
 ### ou
-<git commit -m "mensagem de commit">
+
+```
+git commit -m "mensagem de commit"
+```
 
 ## Enviar ficheiros para github
 
-<git push>
+```
+git push
+```
