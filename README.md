@@ -13,7 +13,7 @@ Descrição de README.md
 <br>
 <br>
 
-# Comandos de terminal relacionados ao github
+# 💻 Comandos de terminal relacionados ao github 💻
 
 ## Configurar email e nome de commit
 
@@ -32,7 +32,7 @@ git config --global user.name "Nome"
 <br>
 <br>
 
-## Enviar Ficheiros para repositório do github
+## 📂 Enviar Ficheiros para repositório do github 📂
 
 ### Adicionar todos os ficheiros ao commit
 
