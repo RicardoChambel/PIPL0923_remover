@@ -1,7 +1,5 @@
 # PIPL0923_remover
 
-Descrição de README.md
-
 ## 🚀 Fast Travel 🚀
 
 (Clicar para onde quer ir)
