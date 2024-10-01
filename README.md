@@ -2,18 +2,18 @@
 
 Descrição muito fixe
 
-Passos para meter os ficheiros no github:
+# Enviar Ficheiros para repositório do github
 
-## Adicionar todos os ficheiros ao commit
+### Adicionar todos os ficheiros ao commit
 
 ```
 git add .
 ```
 
-## Dar commit
+### Dar commit
 
 ```
-git commit>
+git commit
 ```
 
 #### ou
@@ -22,7 +22,7 @@ git commit>
 git commit -m "mensagem de commit"
 ```
 
-## Enviar ficheiros para github
+### Enviar ficheiros para github
 
 ```
 git push
