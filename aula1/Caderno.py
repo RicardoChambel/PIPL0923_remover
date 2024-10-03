@@ -70,3 +70,59 @@ if (idade > 18):
     print("adulto")
 
 print("Fora do if")
+
+#Condições / Controlo de fluxo
+
+#boolean (True | False)
+'''
+E (os dois têm de ser verdadeiros)
+T e T -> T
+T e F -> F
+F e T -> T
+F e F -> F
+
+OU (qualquer um pode ser verdadeiro)
+T ou T -> T
+T ou F -> T
+F ou T -> T
+F ou F -> F
+
+XOU (apenas um pode ser verdadeiro)
+T xou T -> F
+T xou F -> T
+F xou T -> T
+F xou F -> F
+'''
+
+ano = 2024
+
+
+#------- if's (se) -------:
+
+if ano == 2024:
+        print("ano = 2024")
+else:
+    print("Outro ano")
+
+    print("fora do if")
+
+#Faça um programa que peça dois númros e imprima o maior deles
+
+nmr1 = float(input("Digite um numero"))
+nmr2 = float(input("digite outro numero: "))
+
+if nmr1 > nmr2:
+    print(f"O {nmr1} é > que o {nmr2}")
+else:
+    print(f"O {nmr2} é > que o {nmr1}")
+
+
+
+
+# else if ( se não se )
+# else ( se não)
+# switch ( escolha )
+
+# ------- loops -------
+#for (para)
+#while ( enquanto - faça)
