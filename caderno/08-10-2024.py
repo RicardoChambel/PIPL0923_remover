@@ -223,8 +223,89 @@ nomes2[0] = "Novo nome"
 print(nomes2[0])
 print(nomes[0])
 
+#set
+from time import sleep
+import random
+
+mySet = {"val1", "val2", "val3", "val4"}
+print(mySet)
+
+
+"""
+run1: {"val2", "val1", "val3", "val4"}
+run1: {"val1", "val2", "val4", "val3"}
+run1: {"val1", "val2", "val4", "val3"}
+run1: {"val4", "val2", "val3", "val1"}
+
+"""
+
+print("----" * 3)
+
+mySet = {"val1", "val2", "val3", "val4"}
+print(mySet)
+
+mySet.add("val5")
+print(mySet)
+
+mySet.add("val3")
+print(mySet)
+
 lista = list()
 
-listNum = set()
-    
-    
+ListNum = set()
+for _ in range(1000):
+    i = random.randint( 0, 1000)
+    ListNum.add(i)
+
+input("Continuar? ")
+print(ListNum.len())
+
+
+print("-------------------"* 3)
+print("-------------------"* 3)
+
+mySet = {"Val1", "Val2", "Val3", "Val4"}
+
+print("val9" in mySet)
+mySet.remove("val2")
+
+print(mySet)
+
+mySet.remove("Val2")
+
+print("-------------------"* 3)
+print("-------------------"* 3)
+
+
+mySet = {"Val1", "Val2", "Val3", "Val4"}
+mySet2 = {"Val5", "Val4", "Val3", "Val4"}
+
+#uniao
+
+print("-------uniao--------"* 3)
+
+resp = mySet.union(mySet2)
+
+print(resp)
+
+#intersection
+
+print("-------intersection--------"* 3)
+
+resp = mySet.intersection(mySet2)
+
+print(resp)
+
+#diference
+print("-------diference--------"* 3)
+
+resp = mySet.difference(mySet2)
+print(resp)
+
+resp = mySet2.difference(mySet)
+print(resp)
+
+#symmetric diference
+print("-------symmetric diference--------"* 3)
+resp = mySet.symmetric_difference(mySet2)
+print(resp)
