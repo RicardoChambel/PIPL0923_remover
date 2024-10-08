@@ -93,45 +93,77 @@ print("For array")
 for nome in nomes:
     print(nome)
 
-# Receba 5 valores como input e adicione esses valores a uma lista
-# Mostre o conteúdo da lista
-
-valores = []
-for i in range(5):
-    valor = input("Digite um valor: ")
-    valores.append(valor)
-
-print("Conteúdo da lista:")
-print(valores)
-
+#receba 5 valores como input e adicione esses valores a uma lista
+#mostre o conteudo da lista 
 print("-------"* 10)
-valores = [1, 2, 3, 4, 5]
+nova_lista = ["um", "dois", "tres", "quatro", "cinco"]
 
-n = int(input("Quantos valores deseja adicionar à lista? "))
+for i in range(5):
+    novos = input("Digite um valor: ")
+    nova_lista.append(novos)
+
+print("\nLista com os valores adicionados: ")
+print(nova_lista)
+
+
+#receba N valores como input e adicione esses valores a uma lista
+#mostre o conteudo de lista
+#deve perguntar ao utilizador quando valores pretende adicionar
+print("-------"* 10)
+lista = []
+
+n = int(input("Quantos valores você deseja adicionar à lista? "))
 
 for i in range(n):
     valor = input(f"Digite o valor {i + 1}: ")
-    valores.append(valor)
+    lista.append(valor)
 
-print("Conteúdo da lista:", valores)
+print("Conteúdo da lista:", lista)
 
-#Faça um Programa que leia 20 nuumeros inteiros e armazene-os numa lista
-#Armazene os mumeros pares na lista Par e os numeros Impares na lista impar
+#Faça um Programa que leia 20 numeros inteiros e armazene-os numa lista
+#Armazene os numeros pares na lista PAR e os numeros IMPARES na lista impar
 #Imprima os 3 vetores
 
+print("------" * 10)
 numeros = []
-pares = []
-impares = []
+PAR = []
+IMPAR= []
 
 for i in range(20):
-    num = int(input(f"Digite o {i + 1}º numero inteiro: "))
+    num = int(input(f"Digite o {i + 1}º número inteiro: "))
     numeros.append(num)
 
     if num % 2 == 0:
-        pares.append(num)
+        PAR.append(num)
     else:
-        impares.append(num)
+        IMPAR.append(num)
 
 print("Lista de números:", numeros)
-print("Lista de números pares:", pares)
-print("Lista de números ímpares:", impares)
+print("Lista de números pares:", PAR)
+print("Lista de números ímpares:", IMPAR)
+
+
+
+#receba N notas (0 a 20) como input e adicione esses valores a uma lista
+#mostre o conteudo de lista
+#deve perguntar ao utilizador quando valores pretende adicionar
+#deve garantir que todas as notas sao validas
+#deve assumir que o utilizador vai tentar adicionar valores numericos
+
+num = int(input("Numeros de notas:"))
+lista = []
+
+for i in range(num):
+    while True:
+        try:
+            nota = float(input(f"nota {i+1} (0 a 20): "))
+            if 0 <= nota <= 20:
+                lista.append(nota)
+                break
+            else:
+                print("Nota inválida. Inserir um valor de 0 a 20")
+        except ValueError:
+            print("entrada inválida, Inserir um Número") 
+
+for n in lista:
+    print(f"{n:.2f}")
