@@ -155,15 +155,12 @@ lista = []
 
 for i in range(num):
     while True:
-        try:
-            nota = float(input(f"nota {i+1} (0 a 20): "))
-            if 0 <= nota <= 20:
-                lista.append(nota)
-                break
-            else:
-                print("Nota inválida. Inserir um valor de 0 a 20")
-        except ValueError:
-            print("entrada inválida, Inserir um Número") 
+        nota = float(input(f"nota {i+1} (0 a 20): "))
+        if 0 <= nota <= 20:
+            lista.append(nota)
+            break
+        else:
+            print("Nota inválida. Inserir um valor de 0 a 20")
 
 for n in lista:
     print(f"{n:.2f}")
