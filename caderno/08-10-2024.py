@@ -1,5 +1,7 @@
 # ---------------- AULA 3 ---------------- 08 / 10 / 2024
 
+from time import time
+
 tp1 = ("Gonçalo", "ATEC", 10793)
 print(tp1)
 
@@ -220,3 +222,9 @@ nomes2[0] = "Novo nome"
  
 print(nomes2[0])
 print(nomes[0])
+
+lista = list()
+
+listNum = set()
+    
+    
