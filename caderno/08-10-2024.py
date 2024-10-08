@@ -187,5 +187,22 @@ print(f"Lista 3: {lista3}")
 
 lista3 = [len(n) for n in nomes if n[-1] == "a"]
 
-print(lista3)
-
+print(f"Lista 3: {lista3}")
+ 
+ 
+print("---------")
+print("---------")
+ 
+nomes.sort(reverse=True)
+ 
+print(nome)
+ 
+nomes2 = nomes
+ 
+print(nomes2[0])
+print(nomes[0])
+ 
+nomes2[0] = "Novo nome"
+ 
+print(nomes2[0])
+print(nomes[0])
