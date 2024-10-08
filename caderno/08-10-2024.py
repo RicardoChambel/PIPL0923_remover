@@ -83,12 +83,9 @@ print(nomes[7])
 print(nomes.pop(7))
 print(nomes[7])
 
-
-
-
-print(nomes.remove("Outro nome"))
-print(nomes.pop(70))
-print("For array")
+#print(nomes.remove("Outro nome"))
+#print(nomes.pop(70))
+#print("For array")
 
 for nome in nomes:
     print(nome)
@@ -164,3 +161,31 @@ for i in range(num):
 
 for n in lista:
     print(f"{n:.2f}")
+
+nomes = [
+    "Ana", "Bruno", "Carlos", "Daniela", "Eduardo", "Fernanda", "Gabriel", "Helena", "Igor", "Julia", 
+         "Karla", "Lucas", "Mariana", "Nicolas", "Olivia", "Pedro", "Quintino", "Rafael", "Sara", "Tatiana",
+         "Ursula", "Vinicius", "Wagner", "Xavier", "Yasmin" 
+]
+
+
+#Lista de nomes que terminam com "a"
+
+lista2 = []
+
+for nome in nomes:
+    if nome[-1] == "a":
+        lista2.append(nome)
+
+print(lista2)
+
+print("------------")
+
+lista3 = [ n for n in nomes if n[-1] == "a"]
+
+print(f"Lista 3: {lista3}")
+
+lista3 = [len(n) for n in nomes if n[-1] == "a"]
+
+print(lista3)
+
