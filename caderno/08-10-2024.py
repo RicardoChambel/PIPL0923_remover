@@ -147,6 +147,20 @@ print("Lista de números ímpares:", IMPAR)
 #deve garantir que todas as notas sao validas
 #deve assumir que o utilizador vai tentar adicionar valores numericos
 
+'''
+#Faça um Programa que leia 20 numeros inteiros e armazene-os numa lista
+#Armazene os numeros pares na lista PAR e os numeros IMPARES na lista impar
+#Imprima os 3 vetores
+lista = [1,3,3,1,123,31,23,1234,54,6,25,1,4,42,5,62,4,134,414,3,45,1,413,234,532]
+
+par = [ n for n in lista if n % 2 == 0]
+impares = [ n for n in lista if n % 2 != 0]
+
+print(f"par : {par}")
+print(f"Impares: {impares}")
+'''
+
+
 num = int(input("Numeros de notas:"))
 lista = []
 
