@@ -135,11 +135,3 @@ for elm in d1.values():
 print("----- for elm in d1.values(): -----")
 for elm in d1.values():
     print(elm)
-
-# Type cast
-
-
-
-
-
-#funcs

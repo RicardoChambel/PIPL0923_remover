@@ -1,4 +1,4 @@
-    # Ricardo Chambel
+# Ricardo Chambel
 dados = {"nome": "Ricardo Chambel","turma": "PIPL0923"}
 
 print(dados["nome"])

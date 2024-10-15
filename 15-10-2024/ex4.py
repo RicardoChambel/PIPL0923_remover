@@ -1,15 +1,3 @@
-idade = "20"
-nova_idade = int(idade)
-
-print(nova_idade)
-
-idade = "tet"
-print(idade.isdigit())
-print(idade.isalpha())
-#nova_idade = int(idade)
-
-print(nova_idade)
-
 """
 Peça ao utilizador 10 valores numericos
 Vrifique se o valor é numero, se nao for descarte esse valor
