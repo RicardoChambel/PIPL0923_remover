@@ -53,8 +53,90 @@ print("key" in infos)
 print("key" in infos.keys())
 print("key" in infos.values())
 
-# Type cast
+print(("key", "value1") in infos.items())
 
+print("---------------------------- Mudar valor ----------------------------")
+print(f"Key: {infos["key"]}")
+
+infos["key"] = "Novo Valor"
+
+print(f"Key: {infos["key"]}")
+
+
+print("---------------------------- Add valor ----------------------------")
+
+print(infos)
+
+infos["Nova Key"] = "Novo VALOR 2"
+
+print(infos)
+
+print("---------------------------- Remove vals ----------------------------")
+print(infos.keys())
+
+infos.pop("Nova Key")
+print(infos.keys())
+
+del infos["key4"]
+print(infos.keys())
+
+
+print("---------------------------- Remove vals (key nao existe) ----------------------------")
+#del infos["key4"] <- erro
+#infos.pop("Nova Key") <- erro
+
+print(infos)
+
+infos.clear()
+
+print(infos)
+
+escola = "ATEC"
+
+d1 = {"nome":"Gonçalo","Escola":escola}
+d2 = {"Turma1":"PIPL0923","Turma2":"PIPL0922"}
+
+print(f"d1           : {d1}")
+print(f"d2           : {d2}")
+
+d1.update(d2) # <---- UPDATE D1 COM D2
+print(f"d1.update(d2): {d2}")
+
+
+print("-------- Loops ---------")
+
+myList = [1,2,3,4,5,6,7,8,9,10]
+
+for elm in myList:
+    print(elm) 
+
+print("-------- Loops dict ---------")
+
+
+for elm in d1:
+    print(elm) # keys
+
+
+print("---------")
+for elm in d1.keys():
+    print(elm) # keys
+
+
+print("---------")
+for elm in d1.keys():
+    print(d1[elm]) # valores
+
+
+print("----- for elm in d1.keys(): -----")
+for elm in d1.values():
+    print(elm)
+
+
+print("----- for elm in d1.values(): -----")
+for elm in d1.values():
+    print(elm)
+
+# Type cast
 
 
 
