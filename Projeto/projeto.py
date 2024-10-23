@@ -78,12 +78,24 @@ class Ginasio:
                 instrutor = Instrutor(nome,email)
                 self.instrutores.append(instrutor)
             # Carregar Aulas
-            for linha in ficheiroAlunos:
-                instrutor, horario, alunos, duracao = linha.strip().split(',')
-                aula = Aula(instrutor, horario, alunos, duracao)
-                self.aulas.append(aula)
+            for linha in ficheiroAulas:
+                instrutor_nome, horario, numero_max_alunos, duracao = linha.strip().split(',')
+                duracao = int(duracao.replace(';', ''))
+                
+                instrutor = None
+                for i in self.instrutores:
+                    if i.nome == instrutor_nome:
+                        instrutor = i
+                        break
+                    
+                if instrutor:
+                    aula = Aula(instrutor, horario, int(numero_max_alunos), int(duracao))
+                    self.aulas.append(aula)
+                else:
+                    print(f"Instrutor {instrutor_nome} não encontrado para a aula às {horario}.")
+
         except Exception as e:
-            print(f"Ocorreu um erro ao carregar os ficheiros: {e}")
+                print(f"Ocorreu um erro ao carregar os ficheiros: {e}")
  
     def registar_aluno(self, nome, email):
         aluno = Aluno(nome, email)
@@ -113,6 +125,7 @@ class Ginasio:
         ficheiroAlunos = open("aulas.txt", "a")
         ficheiroAlunos.write(f"{instrutor.nome},{horario},{numero_max_alunos},{duracao};\n")
  
+        clear()
         print(f"\n- Aula criada com instrutor {instrutor.nome} às {horario} (Duração da aula: {duracao} minutos) -")
         return
  
@@ -131,6 +144,7 @@ def menu():
         print("[5] - Mostrar alunos e instrutores registados")
         print("[6] - Mostrar aulas marcadas")
         print("[0] - Sair")
+        print("[-1] - Apagar dados (Instantâneo!)")
        
         try:
             escolha = input(">> ")
@@ -140,42 +154,52 @@ def menu():
             print("\n- Opção inválida!-")
             continue
  
-        if escolha == '1':
+        if escolha == '-1':
+            print("-"*(len(nomeGinasio)-2), end="")
+            ficheiroAlunos= open("alunos.txt", "w")
+            ficheiroAlunos.close()
+            ficheiroInstrutores = open("instrutores.txt", "w")
+            ficheiroInstrutores.close()
+            ficheiroAulas = open("aulas.txt", "w")
+            ficheiroAulas.close()
+            clear()
+            print("\n- Dados apagados! -")
+ 
+        elif escolha == '1': # Registar um aluno ----------------------------------
             print("\nRegistar Aluno")
             nome = input("Nome do aluno: ")
             email = input("Email do aluno: ")
             ginasio.registar_aluno (nome, email)
  
-        elif escolha == '2':
+        elif escolha == '2': # Registar um instrutor ----------------------------------
             print("\nRegistar instrutor")
             nome = input("Nome do instrutor: ")
             email = input("Email do instrutor: ")
             ginasio.registar_instrutor(nome, email)
  
-        elif escolha == '3':
-            if not ginasio.instrutores:
-                print("\n- Não há instrutores registados! -")
+        elif escolha == '3':  # Criar uma aula ----------------------------------
+            # Instrutores que não têm aula marcada
+            instrutores_disponiveis = [instrutor for instrutor in ginasio.instrutores if instrutor.aula is None]
+
+            if not instrutores_disponiveis:
+                print("\n- Não há instrutores disponíveis para criar aulas! -")
                 continue
- 
+
             print("\n- Instrutores disponíveis -")
-            for id, instrutor in enumerate(ginasio.instrutores):
+            for id, instrutor in enumerate(instrutores_disponiveis):
                 print(f"{id + 1}. {instrutor.nome}")
- 
+
             try:
                 instrutor_id = int(input("Escolha o número do instrutor: ")) - 1
-                instrutor = ginasio.instrutores[instrutor_id]
-               
-                if instrutor.aula is not None:
-                    print("\n- O instrutor já tem aula marcada! -")
-                    continue
- 
+                instrutor = instrutores_disponiveis[instrutor_id]
+
                 print("\n- Criar aula -")
                 # Escolher hora
                 while True:
                     horas = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
-            '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00',
-            '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
-            '21:00', '22:00', '23:00']
+                            '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00',
+                            '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
+                            '21:00', '22:00', '23:00']
                     id = 0
                     horasID = []
                     for hora in horas:
@@ -189,13 +213,13 @@ def menu():
                         escolha = int(input("\nHora da aula (id) : "))
                     except:
                         print("Escolha inválida")
- 
+
                     if escolha not in horasID:
                         clear()
                         print("- Horário inválido! -\n")
                     else:
                         horario = horas[escolha]
-                        print(f"> Horario escolhido: {horario}")
+                        print(f"> Horário escolhido: {horario}")
                         break
                 numero_max_alunos = int(input("Número máximo de alunos: "))
                 duracao = int(input("Duração da aula em minutos: "))
@@ -204,13 +228,20 @@ def menu():
                 print("\n- Escolha inválida! -")
                 continue
  
-        elif escolha == '4':
+        elif escolha == '4': # Inscrever aluno numa aula ----------------------------------
+            # Aulas que não estão cheias
+            aulas_disponiveis = [aula for aula in ginasio.aulas if len(aula.alunos_inscritos) < aula.numero_max_alunos]
+            
             if not ginasio.alunos:
                 print("\n- Não há alunos registados! -")
                 continue
  
             if not ginasio.aulas:
                 print("\n- Não há aulas planeadas! -")
+                continue
+            
+            if not aulas_disponiveis:
+                print("\n- Todas as aulas estão lotadas! -")
                 continue
  
             print("\n- Alunos registados -")
@@ -225,17 +256,17 @@ def menu():
                 continue
  
             print("\n- Aulas disponíveis -")
-            for id, aula in enumerate(ginasio.aulas):
-                print(f"{id + 1}. {aula.instrutor.nome} às {aula.horario}")
+            for id, aula in enumerate(aulas_disponiveis):
+                print(f"{id + 1}. Aula com {aula.instrutor.nome} às {aula.horario}")
  
             try:
                 aula_id = int(input("Escolha o número da aula: ")) - 1
-                aula = ginasio.aulas[aula_id]
+                aula = aulas_disponiveis[aula_id]
                 aluno.inscrever_aula(aula)
             except (ValueError, IndexError):
                 print("Escolha inválida")
  
-        elif escolha == '5':
+        elif escolha == '5': # Mostrar alunos e instrutores registados ----------------------------------
  
             if not ginasio.alunos:
                 print("\n- Não há alunos registados! -")
@@ -250,16 +281,16 @@ def menu():
                 for instrutor in ginasio.instrutores:
                     print(f"+ Nome: {instrutor.nome} | Email: {instrutor.email}")
 
-        elif escolha == '6':
+        elif escolha == '6': # Mostrar aulas marcadas ----------------------------------
             if not ginasio.aulas:
                 print("\n- Não há aulas criadas!-")
             else:
                 print("\n- Aulas criadas -")
                 for aula in ginasio.aulas:
-                     print(f"Aula {aula} horario marcado é {id}. {horario} | ", end="\n")                
+                    print(f"+ Aula marcada para as {aula.horario} horas com o instrutor {aula.instrutor.nome}")
 
         elif escolha == '0':
-            print("Ate a proxima!")
+            print("\nAté à próxima!")
             break
  
         else:
